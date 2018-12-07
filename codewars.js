@@ -45,3 +45,38 @@ function bouncingBall(h, bounce, window) {
   }
   return seen
 }
+
+// Yours order, please
+// order("is2 Thi1s T4est 3a") => "Thi1s is2 3a T4est"
+function order(words) {
+  return words.split(' ').sort((a, b) => {
+    return a.match(/\d/) - b.match(/\d/)
+  }).join(' ')
+}
+
+// Tribonacci Sequence
+function tribonacci(signature,n){  
+  for (var i = 0; i < n-3; i++) { // iterate n times
+    signature.push(signature[i] + signature[i+1] + signature[i+2]); // add last 3 array items and push to trib
+  }
+  return signature.slice(0, n); //return trib - length of n
+}
+
+// triple trouble
+function tripledouble(num1, num2) {
+  for (let i = 0; i < 10; i++) {
+    if (new RegExp(`${i}{3}`).test(num1) && new RegExp(`${i}{2}`).test(num2)) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
+// What's a Perfect Power anyway
+var isPP = function(n){
+  for (var m = 2; m <= Math.floor(Math.sqrt(n)); ++m) {
+    var k = Math.round(Math.log(n) / Math.log(m))
+    if (Math.pow(m, k) == n) return [m, k];
+  }
+  return null;
+}
